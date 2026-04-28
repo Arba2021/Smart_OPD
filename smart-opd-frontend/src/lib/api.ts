@@ -1,5 +1,5 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
-const API_KEY = 'super_secret_internal_key_change_in_production' // Hardcoded for MVP demo
+const API_KEY = 'super_secret_internal_key_change_in_production'
 
 async function handleResponse(res: Response) {
   if (!res.ok) {
@@ -118,7 +118,6 @@ export interface SimulationStatusResponse {
   error: string | null
 }
 
-// FIXED: Changed to use securePost so it sends the API key
 export async function startSimulation(scenario: string, count: number) {
   return securePost('/demo/start', { scenario, patient_count: count })
 }
