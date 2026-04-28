@@ -1,5 +1,5 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
-const API_KEY = process.env.NEXT_PUBLIC_INTERNAL_API_KEY || ''
+const API_KEY = 'super_secret_internal_key_change_in_production' // Hardcoded for MVP demo
 
 async function handleResponse(res: Response) {
   if (!res.ok) {
@@ -93,6 +93,7 @@ export async function assignDoctor(data: { registration_id: number; doctor_id: s
 export async function doctorAction(action: string, data: { doctor_id: string; doctor_queue_id: number }) {
   return securePost(`/doctor/${action}`, data)
 }
+
 export interface SimulationStartResponse {
   simulation_id: string
   status: string
@@ -117,8 +118,9 @@ export interface SimulationStatusResponse {
   error: string | null
 }
 
-export async function startSimulation(scenario: string, patientCount: number): Promise<SimulationStartResponse> {
-  return securePost('/demo/start', { scenario, patient_count: patientCount })
+// FIXED: Changed to use securePost so it sends the API key
+export async function startSimulation(scenario: string, count: number) {
+  return securePost('/demo/start', { scenario, patient_count: count })
 }
 
 export async function getSimulationStatus(simId: string): Promise<SimulationStatusResponse> {
