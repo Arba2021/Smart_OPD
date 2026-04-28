@@ -21,7 +21,11 @@ COPY --from=builder /root/.local /home/appuser/.local
 
 ENV PATH=/home/appuser/.local/bin:$PATH
 
+# Copy backend code
 COPY . .
+
+# Copy database schema from the parent folder
+COPY ../database /app/database
 
 RUN chown -R appuser:appuser /app
 
