@@ -1,0 +1,25 @@
+# Environment variables (API Keys)
+.env
+*/.env
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Node / Next.js
+smart-opd-frontend/node_modules/
+smart-opd-frontend/.next/
+smart-opd-frontend/out/
+
+# Docker
+pgdata/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
+project_dump.txt
