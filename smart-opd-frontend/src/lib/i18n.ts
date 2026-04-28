@@ -1,4 +1,4 @@
-import { Language, Translation } from '@/types'
+import { Language} from '@/types'
 
 export const SUPPORTED_LANGUAGES: { code: Language; label: string; native: string }[] = [
   { code: 'en', label: 'English', native: 'English' },
@@ -24,7 +24,7 @@ export function setStoredLanguage(lang: Language): void {
   localStorage.setItem(STORAGE_KEY, lang)
 }
 
-export async function getTranslations(lang: Language): Promise<Translation> {
+export async function getTranslations(lang: Language): Promise<Record<string, string>> {
   try {
     const module = await import(`@/translations/${lang}.ts`)
     return module.default

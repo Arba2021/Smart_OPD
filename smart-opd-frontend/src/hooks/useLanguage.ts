@@ -1,11 +1,11 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
-import { Language, Translation } from '@/types'
+import { Language } from '@/types'
 import { getStoredLanguage, setStoredLanguage, getTranslations, DEFAULT_LANGUAGE } from '@/lib/i18n'
 
 export function useLanguage() {
   const [language, setLanguage] = useState<Language>(DEFAULT_LANGUAGE)
-  const [translations, setTranslations] = useState<Translation | null>(null)
+  const [translations, setTranslations] = useState<Record<string, string> | null>(null)
   const [loading, setLoading] = useState(true)
 
   const loadTranslations = useCallback(async (lang: Language) => {

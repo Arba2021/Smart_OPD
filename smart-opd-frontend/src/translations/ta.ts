@@ -1,6 +1,4 @@
-import { Translation } from '@/types'
-
-const ta: Translation = {
+const ta = {
   common: {
     loading: 'செயலாக்கப்படுகிறது...',
     error: 'ஒரு பிழை ஏற்பட்டது',

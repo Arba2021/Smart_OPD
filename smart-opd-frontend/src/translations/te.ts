@@ -1,6 +1,4 @@
-import { Translation } from '@/types'
-
-const te: Translation = {
+const te = {
   common: {
     loading: 'ప్రాసెస్ చేస్తోంది...',
     error: 'ఒక లోపం వచ్చింది',

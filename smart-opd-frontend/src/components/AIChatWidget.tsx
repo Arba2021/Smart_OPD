@@ -1,5 +1,5 @@
 'use client'
-import { MessageSquare, X } from 'lucide-react'
+import { MessageSquare, X, Bot } from 'lucide-react'
 import { useState } from 'react'
 
 interface Message {

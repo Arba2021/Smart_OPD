@@ -26,7 +26,7 @@ export default function StatusPage() {
     setLoading(true)
 
     try {
-      const data = await checkStatus(phone, language)
+      const data = await checkStatus(phone)
       setStatusData(data)
 
       // Use AI message if available, otherwise construct generic message
@@ -110,7 +110,6 @@ ${data.triage_color === 'RED' ? 'Priority case.' : ''}`
                     onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, ''))}
                     required
                     maxLength={10}
-                    icon={<Phone className="w-4 h-4" />}
                   />
 
                   <Button 

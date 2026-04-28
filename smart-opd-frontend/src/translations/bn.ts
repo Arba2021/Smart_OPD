@@ -1,4 +1,4 @@
-import { Translation } from '@/types'
+type Translation = Record<string, any>
 
 const bn: Translation = {
   common: {

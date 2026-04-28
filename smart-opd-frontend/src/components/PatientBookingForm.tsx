@@ -5,7 +5,7 @@ import { Select } from '@/components/ui/Select'
 import { Button } from '@/components/ui/Button'
 import { bookToken } from '@/lib/api'
 import { Language } from '@/types'
-import { User, Phone, Stethoscope, Activity, ShieldCheck, Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
+import { User, Phone, Stethoscope, ShieldCheck, Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
 
 const doctorOptions = [
   { value: 'gen-001', label: 'Dr. Sharma (General)' },
@@ -133,7 +133,6 @@ export default function PatientBookingForm({
         options={doctorOptions}
         value={doctorId}
         onChange={e => setDoctorId(e.target.value)}
-        icon={<Activity className="w-4 h-4" />}
       />
       
       <Select
@@ -141,9 +140,6 @@ export default function PatientBookingForm({
         options={languageOptions}
         value={language}
         onChange={e => setLanguage(e.target.value as Language)}
-        icon={<svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-        </svg>}
       />
 
       <div className="space-y-1.5">
@@ -158,7 +154,6 @@ export default function PatientBookingForm({
           }}
           required
           placeholder="Full Name"
-          icon={<User className="w-4 h-4" />}
           error={validationErrors.name}
         />
       </div>
@@ -172,11 +167,10 @@ export default function PatientBookingForm({
           required
           placeholder="10-digit number"
           maxLength={10}
-          icon={<Phone className="w-4 h-4" />}
           hint={phone.length === 10 && /^[6-9]\d{9}$/.test(phone) ? (
-            <span className="flex items-center gap-1 text-emerald-600"><CheckCircle2 className="w-3 h-3" /> Valid number format</span>
+            "Valid number format"
           ) : phone.length > 0 ? (
-            <span className="flex items-center gap-1 text-amber-600"><AlertCircle className="w-3 h-3" /> Must start with 6-9 and be 10 digits</span>
+            "Must start with 6-9 and be 10 digits"
           ) : "We will send you an SMS in your selected language."}
           error={validationErrors.phone}
         />
@@ -187,7 +181,6 @@ export default function PatientBookingForm({
         value={symptom}
         onChange={e => setSymptom(e.target.value)}
         placeholder="e.g. Fever, Joint Pain"
-        icon={<Stethoscope className="w-4 h-4" />}
       />
 
       <Button
