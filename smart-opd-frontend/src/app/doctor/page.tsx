@@ -54,7 +54,7 @@ export default function DoctorPage() {
         })
         setSuccessMsg('Patient completed. Next patient called.')
       } else {
-        await doctorAction('call-next', { doctor_id: DOCTOR_ID })
+        await doctorAction('call-next', { doctor_id: DOCTOR_ID, doctor_queue_id: 0 })
         setSuccessMsg('Next patient called successfully.')
       }
       await fetchQueueData()
